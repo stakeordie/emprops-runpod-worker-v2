@@ -41,7 +41,12 @@ RUN ln -s /usr/bin/python3.10 /usr/bin/python
 # Install Worker dependencies
 RUN pip install requests runpod>=1.3.7 huggingface_hub
 
-RUN pip install --no-cache-dir torch==2.0.1+cu118 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+COPY requirements.txt /requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --upgrade -r /requirements.txt --no-cache-dir && \
+    rm /requirements.txt
 
 # Add RunPod Handler and Docker container start script
 COPY start.sh rp_handler.py ./

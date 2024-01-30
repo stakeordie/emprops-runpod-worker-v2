@@ -14,21 +14,21 @@ if [ -f "/workspace/venv/bin/activate" ]; then
     export PYTHONUNBUFFERED=true
     export HF_HOME="/workspace"
     
-    # python3 /workspace/stable-diffusion-webui/webui.py \
-    #   --xformers \
-    #   --no-half-vae \
-    #   --skip-python-version-check \
-    #   --skip-torch-cuda-test \
-    #   --skip-install \
-    #   --lowram \
-    #   --opt-sdp-attention \
-    #   --disable-safe-unpickle \
-    #   --port 3000 \
-    #   --api \
-    #   --nowebui \
-    #   --skip-version-check \
-    #   --no-hashing \
-    #   --no-download-sd-model > /workspace/logs/webui.log 2>&1 &
+    python3 /workspace/stable-diffusion-webui/webui.py \
+      --xformers \
+      --no-half-vae \
+      --skip-python-version-check \
+      --skip-torch-cuda-test \
+      --skip-install \
+      --lowram \
+      --opt-sdp-attention \
+      --disable-safe-unpickle \
+      --port 3000 \
+      --api \
+      --nowebui \
+      --skip-version-check \
+      --no-hashing \
+      --no-download-sd-model
     deactivate
 else
     echo "ERROR: The Python Virtual Environment (/workspace/venv/bin/activate) could not be activated"
@@ -38,5 +38,5 @@ else
     echo "4. Ensure that you didn't assign any other invalid regions to your endpoint."
 fi
 
-# echo "Starting RunPod Handler"
-# python3 -u /rp_handler.py
+echo "Starting RunPod Handler"
+python3 -u /rp_handler.py

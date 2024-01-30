@@ -15,7 +15,7 @@ from schemas.interrogate import INTERROGATE_SCHEMA
 from schemas.sync import SYNC_SCHEMA
 from schemas.download import DOWNLOAD_SCHEMA
 
-BASE_URI = 'http://127.0.0.1:3000'
+BASE_URI = 'http://0.0.0.0:3000'
 TIMEOUT = 600
 POST_RETRIES = 3
 

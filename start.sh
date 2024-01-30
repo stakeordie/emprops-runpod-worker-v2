@@ -25,7 +25,6 @@ if [ -f "/workspace/venv/bin/activate" ]; then
       --disable-safe-unpickle \
       --port 3000 \
       --api \
-      --listen \
       --nowebui \
       --skip-version-check \
       --no-hashing \

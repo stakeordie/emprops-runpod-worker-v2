@@ -25,6 +25,7 @@ if [ -f "/workspace/venv/bin/activate" ]; then
       --disable-safe-unpickle \
       --port 3000 \
       --api \
+      --listen \
       --nowebui \
       --skip-version-check \
       --no-hashing \
@@ -39,4 +40,4 @@ else
 fi
 
 echo "Starting RunPod Handler"
-python3 -u /rp_handler.py
+python3 -u /rp_handler.py --rp_serve_api --rp_api_host '0.0.0.0' --rp_api_port 8080

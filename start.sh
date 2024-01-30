@@ -13,7 +13,6 @@ if [ -f "/workspace/venv/bin/activate" ]; then
     export LD_PRELOAD="${TCMALLOC}"
     export PYTHONUNBUFFERED=true
     export HF_HOME="/workspace"
-    
     python3 /workspace/stable-diffusion-webui/webui.py \
       --xformers \
       --no-half-vae \
@@ -28,7 +27,7 @@ if [ -f "/workspace/venv/bin/activate" ]; then
       --nowebui \
       --skip-version-check \
       --no-hashing \
-      --no-download-sd-model &
+      --no-download-sd-model > /workspace/logs/webui.log 2>&1 &
     deactivate
 else
     echo "ERROR: The Python Virtual Environment (/workspace/venv/bin/activate) could not be activated"
@@ -39,4 +38,4 @@ else
 fi
 
 echo "Starting RunPod Handler"
-python3 -u /rp_handler.py --rp_serve_api --rp_api_host '0.0.0.0' --rp_api_port 8080
+python3 -u /rp_handler.py
